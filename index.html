@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+
+<meta charset="UTF-8">
+
+<title>Dámajáték</title>
+<link rel="stylesheet" href="style.css">
+
+<button onclick="handleNewGameButton()">New game</button>
+
+<div id="anybodyWon" ></div>
+<div id="actualPlayer" ><h1>A zöld következik!</h1></div>
+
+<div id="game" class="board">
+    <div id="field_7_0" class="field light"></div>
+    <div id="field_7_1" class="field dark" onclick="moveStone(7, 1)"></div>
+    <div id="field_7_2" class="field light"></div>
+    <div id="field_7_3" class="field dark" onclick="moveStone(7, 3)"></div>
+    <div id="field_7_4" class="field light"></div>
+    <div id="field_7_5" class="field dark" onclick="moveStone(7, 5)"></div>
+    <div id="field_7_6" class="field light"></div>
+    <div id="field_7_7" class="field dark" onclick="moveStone(7, 7)"></div>
+
+    <div id="field_6_0" class="field dark" onclick="moveStone(6, 0)"></div>
+    <div id="field_6_1" class="field light"></div>
+    <div id="field_6_2" class="field dark" onclick="moveStone(6, 2)"></div>
+    <div id="field_6_3" class="field light"></div>
+    <div id="field_6_4" class="field dark" onclick="moveStone(6, 4)"></div>
+    <div id="field_6_5" class="field light"></div>
+    <div id="field_6_6" class="field dark" onclick="moveStone(6, 6)"></div>
+    <div id="field_6_7" class="field light"></div>
+
+    <div id="field_5_0" class="field light"></div>
+    <div id="field_5_1" class="field dark" onclick="moveStone(5, 1)"></div>
+    <div id="field_5_2" class="field light"></div>
+    <div id="field_5_3" class="field dark" onclick="moveStone(5, 3)"></div>
+    <div id="field_5_4" class="field light"></div>
+    <div id="field_5_5" class="field dark" onclick="moveStone(5, 5)"></div>
+    <div id="field_5_6" class="field light"></div>
+    <div id="field_5_7" class="field dark" onclick="moveStone(5, 7)"></div>
+
+    <div id="field_4_0" class="field dark" onclick="moveStone(4, 0)"></div>
+    <div id="field_4_1" class="field light"></div>
+    <div id="field_4_2" class="field dark" onclick="moveStone(4, 2)"></div>
+    <div id="field_4_3" class="field light"></div>
+    <div id="field_4_4" class="field dark" onclick="moveStone(4, 4)"></div>
+    <div id="field_4_5" class="field light"></div>
+    <div id="field_4_6" class="field dark" onclick="moveStone(4, 6)"></div>
+    <div id="field_4_7" class="field light"></div>
+
+    <div id="field_3_0" class="field light"></div>
+    <div id="field_3_1" class="field dark" onclick="moveStone(3, 1)"></div>
+    <div id="field_3_2" class="field light"></div>
+    <div id="field_3_3" class="field dark" onclick="moveStone(3, 3)"></div>
+    <div id="field_3_4" class="field light"></div>
+    <div id="field_3_5" class="field dark" onclick="moveStone(3, 5)"></div>
+    <div id="field_3_6" class="field light"></div>
+    <div id="field_3_7" class="field dark" onclick="moveStone(3, 7)"></div>
+
+    <div id="field_2_0" class="field dark" onclick="moveStone(2, 0)"></div>
+    <div id="field_2_1" class="field light"></div>
+    <div id="field_2_2" class="field dark" onclick="moveStone(2, 2)"></div>
+    <div id="field_2_3" class="field light"></div>
+    <div id="field_2_4" class="field dark" onclick="moveStone(2, 4)"></div>
+    <div id="field_2_5" class="field light"></div>
+    <div id="field_2_6" class="field dark" onclick="moveStone(2, 6)"></div>
+    <div id="field_2_7" class="field light"></div>
+
+    <div id="field_1_0" class="field light"></div>
+    <div id="field_1_1" class="field dark" onclick="moveStone(1, 1)"></div>
+    <div id="field_1_2" class="field light"></div>
+    <div id="field_1_3" class="field dark" onclick="moveStone(1, 3)"></div>
+    <div id="field_1_4" class="field light"></div>
+    <div id="field_1_5" class="field dark" onclick="moveStone(1, 5)"></div>
+    <div id="field_1_6" class="field light"></div>
+    <div id="field_1_7" class="field dark" onclick="moveStone(1, 7)"></div>
+
+    <div id="field_0_0" class="field dark" onclick="moveStone(0, 0)"></div>
+    <div id="field_0_1" class="field light"></div>
+    <div id="field_0_2" class="field dark" onclick="moveStone(0, 2)"></div>
+    <div id="field_0_3" class="field light"></div>
+    <div id="field_0_4" class="field dark" onclick="moveStone(0, 4)"></div>
+    <div id="field_0_5" class="field light"></div>
+    <div id="field_0_6" class="field dark" onclick="moveStone(0, 6)"></div>
+    <div id="field_0_7" class="field light"></div>
+
+    <div id="stone_light_0" class="stone light" onclick="toggleStone('stone_light_0')" style="bottom: 12px; left: 12px"></div>
+    <div id="stone_light_1" class="stone light" onclick="toggleStone('stone_light_1')" style="bottom: 12px; left: 140px"></div>
+    <div id="stone_light_2" class="stone light" onclick="toggleStone('stone_light_2')" style="bottom: 12px; left: 268px"></div>
+    <div id="stone_light_3" class="stone light" onclick="toggleStone('stone_light_3')" style="bottom: 12px; left: 396px"></div>
+    <div id="stone_light_4" class="stone light" onclick="toggleStone('stone_light_4')" style="bottom: 76px; left: 76px"></div>
+    <div id="stone_light_5" class="stone light" onclick="toggleStone('stone_light_5')" style="bottom: 76px; left: 204px"></div>
+    <div id="stone_light_6" class="stone light" onclick="toggleStone('stone_light_6')" style="bottom: 76px; left: 332px"></div>
+    <div id="stone_light_7" class="stone light" onclick="toggleStone('stone_light_7')" style="bottom: 76px; left: 460px"></div>
+    <div id="stone_light_8" class="stone light" onclick="toggleStone('stone_light_8')" style="bottom: 140px; left: 12px"></div>
+    <div id="stone_light_9" class="stone light" onclick="toggleStone('stone_light_9')" style="bottom: 140px; left: 140px"></div>
+    <div id="stone_light_10" class="stone light" onclick="toggleStone('stone_light_10')" style="bottom: 140px; left: 268px"></div>
+    <div id="stone_light_11" class="stone light" onclick="toggleStone('stone_light_11')" style="bottom: 140px; left: 396px"></div>
+
+    <div id="stone_dark_0" class="stone dark" onclick="toggleStone('stone_dark_0')" style="bottom: 332px; left: 76px"></div>
+    <div id="stone_dark_1" class="stone dark" onclick="toggleStone('stone_dark_1')" style="bottom: 332px; left: 204px"></div>
+    <div id="stone_dark_2" class="stone dark" onclick="toggleStone('stone_dark_2')" style="bottom: 332px; left: 332px"></div>
+    <div id="stone_dark_3" class="stone dark" onclick="toggleStone('stone_dark_3')" style="bottom: 332px; left: 460px"></div>
+    <div id="stone_dark_4" class="stone dark" onclick="toggleStone('stone_dark_4')" style="bottom: 396px; left: 12px"></div>
+    <div id="stone_dark_5" class="stone dark" onclick="toggleStone('stone_dark_5')" style="bottom: 396px; left: 140px"></div>
+    <div id="stone_dark_6" class="stone dark" onclick="toggleStone('stone_dark_6')" style="bottom: 396px; left: 268px"></div>
+    <div id="stone_dark_7" class="stone dark" onclick="toggleStone('stone_dark_7')" style="bottom: 396px; left: 396px"></div>
+    <div id="stone_dark_8" class="stone dark" onclick="toggleStone('stone_dark_8')" style="bottom: 460px; left: 76px"></div>
+    <div id="stone_dark_9" class="stone dark" onclick="toggleStone('stone_dark_9')" style="bottom: 460px; left: 204px"></div>
+    <div id="stone_dark_10" class="stone dark" onclick="toggleStone('stone_dark_10')" style="bottom: 460px; left: 332px"></div>
+    <div id="stone_dark_11" class="stone dark" onclick="toggleStone('stone_dark_11')" style="bottom: 460px; left: 460px"></div>
+</div>
+
+<script src="script.js"></script>
